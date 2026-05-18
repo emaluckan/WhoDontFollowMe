@@ -1,0 +1,29 @@
+/* estilos.css */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+}
+
+p {
+    color: #fff;
+    font-size: 18px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, p {
+    padding: 10px;
+}

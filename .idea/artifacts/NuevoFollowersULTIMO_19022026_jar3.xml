@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NuevoFollowersULTIMO_19022026:jar3">
+    <output-path>$PROJECT_DIR$/out/artifacts/NuevoFollowersULTIMO_19022026_jar3</output-path>
+    <root id="archive" name="NuevoFollowers.jar">
+      <element id="module-output" name="NuevoFollowers" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.15.3/jsoup-1.15.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Who Dont Follow Me</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            background:
+                    radial-gradient(circle at top left, #24123d, transparent 30%),
+                    radial-gradient(circle at top right, #141c46, transparent 30%),
+                    #050816;
+
+            color: white;
+
+            min-height: 100vh;
+
+            padding: 40px 20px;
+        }
+
+        .container {
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        .title {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .title h1 {
+
+            font-size: 72px;
+
+            font-weight: 700;
+
+            background: linear-gradient(90deg, #b14cff, #5b9dff);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title p {
+
+            margin-top: 15px;
+
+            color: #bdbdbd;
+
+            font-size: 22px;
+        }
+
+        .upload-card {
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 25px;
+
+            padding: 40px;
+
+            margin-bottom: 35px;
+
+            box-shadow: 0 0 30px rgba(108,92,231,0.2);
+        }
+
+        .drop-zone {
+
+        border: 2px dashed rgba(255,255,255,0.2);
+
+        border-radius: 20px;
+
+        padding: 50px 30px;
+
+        text-align: center;
+
+        transition: 0.3s;
+
+        background: rgba(255,255,255,0.03);
+
+        flex: 1;
+    }
+
+    .drop-zone.dragover {
+
+        border-color: #b14cff;
+
+        background: rgba(177,76,255,0.08);
+
+        box-shadow: 0 0 25px rgba(177,76,255,0.3);
+    }
+
+    .drop-title {
+
+        font-size: 24px;
+
+        font-weight: 600;
+
+        margin-bottom: 10px;
+    }
+
+    .drop-subtitle {
+
+        color: #999;
+
+        margin-bottom: 25px;
+    }
+
+    .process-btn {
+
+        margin-top: 25px;
+
+        width: 100%;
+    }
+
+    #selected-file {
+
+        margin-top: 20px;
+
+        color: #b14cff;
+
+        font-weight: 500;
+    }
+
+        .upload-row {
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+        }
+
+        input[type="file"] {
+
+            flex: 1;
+
+            color: white;
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            padding: 15px;
+
+            border-radius: 15px;
+        }
+
+        button {
+
+            background: linear-gradient(90deg, #b14cff, #5b9dff);
+
+            border: none;
+
+            color: white;
+
+            padding: 15px 35px;
+
+            border-radius: 15px;
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+
+            transform: scale(1.05);
+
+            box-shadow: 0 0 25px rgba(177,76,255,0.5);
+        }
+
+        .search-input {
+
+            width: 100%;
+
+            padding: 16px;
+
+            margin-bottom: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            background: rgba(255,255,255,0.05);
+
+            color: white;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .search-input::placeholder {
+
+            color: #999;
+        }
+
+        .results-card {
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 25px;
+
+            padding: 40px;
+
+            box-shadow: 0 0 30px rgba(108,92,231,0.15);
+        }
+
+        .results-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 30px;
+        }
+
+        .results-header h2 {
+
+            font-size: 40px;
+        }
+
+        .badge {
+
+            background: linear-gradient(90deg, #b14cff, #5b9dff);
+
+            padding: 10px 18px;
+
+            border-radius: 999px;
+
+            font-weight: 600;
+        }
+
+        ul {
+
+            columns: 3;
+
+            list-style: none;
+        }
+
+        li {
+
+            margin-bottom: 14px;
+
+            color: #e0e0e0;
+
+            font-size: 17px;
+        }
+
+        li::before {
+
+            content: "•";
+
+            color: #b14cff;
+
+            margin-right: 10px;
+        }
+
+        footer {
+
+            text-align: center;
+
+            margin-top: 50px;
+
+            color: #9d9d9d;
+
+            font-size: 16px;
+        }
+
+        footer span {
+
+            color: #b14cff;
+
+            font-weight: 600;
+        }
+
+        .instagram-link {
+
+        color: #b14cff;
+
+        text-decoration: none;
+
+        font-weight: 600;
+
+        transition: 0.3s;
+    }
+
+    .instagram-link:hover {
+
+        color: #5b9dff;
+
+        text-shadow: 0 0 10px rgba(177,76,255,0.5);
+    }
+
+        @media(max-width: 900px) {
+
+            .title h1 {
+                font-size: 48px;
+            }
+
+            ul {
+                columns: 2;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .title h1 {
+                font-size: 38px;
+            }
+
+            .title p {
+                font-size: 18px;
+            }
+
+            ul {
+                columns: 1;
+            }
+
+            .results-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">
+
+        <h1>Who Dont Follow Me</h1>
+
+        <p>
+            Descubrí quiénes no te siguen de vuelta en Instagram
+        </p>
+
+    </div>
+
+    <div class="upload-card">
+
+        <div
+                id="drop-zone"
+                class="drop-zone"
+        >
+
+            <p class="drop-title">
+                Arrastrá tu ZIP de Instagram acá
+            </p>
+
+            <p class="drop-subtitle">
+                o seleccioná un archivo manualmente
+            </p>
+
+            <input
+                    type="file"
+                    id="zipFile"
+                    hidden
+            >
+
+            <button onclick="document.getElementById('zipFile').click()">
+                Seleccionar archivo
+            </button>
+
+            <p id="selected-file"></p>
+
+        </div>
+
+        <button
+                onclick="uploadZip()"
+                class="process-btn"
+        >
+            Procesar
+        </button>
+
+    </div>
+
+    <div class="results-card">
+
+        <div class="results-header">
+
+            <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Buscar usuario..."
+                    onkeyup="filtrarUsuarios()"
+                    class="search-input"
+            />
+
+            <h2>
+                Usuarios que no te siguen
+            </h2>
+
+            <div class="badge" id="total">
+                0
+            </div>
+
+        </div>
+
+        <ul id="resultados"></ul>
+
+    </div>
+
+    <footer>
+
+        Creado con ❤️ por <span>Emanuel Lucangioli</span>
+        <br><br>
+
+        Seguime en IG:
+        <a
+                href="https://instagram.com/emaaluca"
+                target="_blank"
+                class="instagram-link"
+        >
+            @emaaluca
+        </a>
+
+    </footer>
+
+</div>
+
+<script>
+
+    const dropZone = document.getElementById('drop-zone');
+
+    const fileInput = document.getElementById('zipFile');
+
+    dropZone.addEventListener('dragover', (e) => {
+
+        e.preventDefault();
+
+        dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+
+        dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+
+        e.preventDefault();
+
+        dropZone.classList.remove('dragover');
+
+        const files = e.dataTransfer.files;
+
+        if (files.length > 0) {
+
+            fileInput.files = files;
+
+            mostrarNombreArchivo(files[0]);
+        }
+    });
+
+    fileInput.addEventListener('change', () => {
+
+        if (fileInput.files.length > 0) {
+
+            mostrarNombreArchivo(fileInput.files[0]);
+        }
+    });
+
+    function mostrarNombreArchivo(file) {
+
+        document.getElementById('selected-file')
+            .innerText = file.name;
+    }
+
+    async function uploadZip() {
+
+
+
+        const file = fileInput.files[0];
+
+        if (!file) {
+
+            alert("Seleccioná un ZIP");
+
+            return;
+        }
+
+        const formData = new FormData();
+
+        formData.append("file", file);
+
+        const response = await fetch('/upload', {
+
+            method: 'POST',
+
+            body: formData
+        });
+
+        const usuarios = await response.json();
+
+        const lista = document.getElementById('resultados');
+
+        lista.innerHTML = "";
+
+        document.getElementById('total').innerText =
+            usuarios.length;
+
+        usuarios.forEach(usuario => {
+
+            const li = document.createElement('li');
+
+            const link = document.createElement('a');
+
+            link.href = `https://instagram.com/${usuario}`;
+
+            link.target = "_blank";
+
+            link.innerText = usuario;
+
+            link.style.color = "#e0e0e0";
+
+            link.style.textDecoration = "none";
+
+            link.style.transition = "0.3s";
+
+            link.onmouseover = () => {
+                link.style.color = "#b14cff";
+            };
+
+            link.onmouseout = () => {
+                link.style.color = "#e0e0e0";
+            };
+
+            li.appendChild(link);
+
+            lista.appendChild(li);
+        });
+    }
+
+    function filtrarUsuarios() {
+
+        const texto =
+            document.getElementById('searchInput')
+                .value
+                .toLowerCase();
+
+        const items =
+            document.querySelectorAll('#resultados li');
+
+        items.forEach(item => {
+
+            const usuario =
+                item.innerText.toLowerCase();
+
+            if (usuario.includes(texto)) {
+
+                item.style.display = '';
+
+            } else {
+
+                item.style.display = 'none';
+            }
+        });
+    }
+
+</script>
+
+</body>
+</html>
