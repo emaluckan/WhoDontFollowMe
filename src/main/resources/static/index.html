@@ -326,6 +326,151 @@
         text-shadow: 0 0 10px rgba(177,76,255,0.5);
     }
 
+    .navbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    padding: 15px 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+.logo-nav {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: white;
+}
+
+.nav-links a {
+
+    color: #d7d7d7;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+
+    color: #b14cff;
+}
+
+.security-box {
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(177,76,255,0.08);
+
+    border: 1px solid rgba(177,76,255,0.2);
+
+    color: #d7d7d7;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.how-section {
+
+    margin-top: 70px;
+}
+
+.how-title {
+
+    text-align: center;
+
+    font-size: 50px;
+
+    margin-bottom: 50px;
+
+    background: linear-gradient(90deg, #b14cff, #5b9dff);
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.steps-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+.step-card {
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 25px;
+
+    padding: 20px;
+
+    transition: 0.3s;
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.step-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 0 25px rgba(177,76,255,0.2);
+}
+
+.step-card h3 {
+
+    margin-bottom: 10px;
+
+    color: #b14cff;
+
+    font-size: 24px;
+}
+
+.step-card p {
+
+    color: #d0d0d0;
+
+    margin-bottom: 15px;
+
+    line-height: 1.6;
+}
+
+.step-card img {
+
+    width: 100%;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
         @media(max-width: 900px) {
 
             .title h1 {
@@ -361,6 +506,18 @@
 </head>
 
 <body>
+
+<nav class="navbar">
+
+    <div class="logo-nav">
+        👁️ WhoDontFollowMe
+    </div>
+
+    <div class="nav-links">
+        <a href="#como-funciona">¿Cómo funciona?</a>
+    </div>
+
+</nav>
 
 <div class="container">
 
@@ -412,6 +569,14 @@
 
     </div>
 
+    <div class="security-box">
+
+        🔒 Tu archivo nunca se guarda.
+        <br>
+        Todo se procesa automáticamente y en privado.
+
+    </div>
+
     <div class="results-card">
 
         <div class="results-header">
@@ -437,6 +602,241 @@
         <ul id="resultados"></ul>
 
     </div>
+
+    <section
+            id="como-funciona"
+            class="how-section"
+    >
+
+        <h2 class="how-title">
+            ¿Cómo funciona?
+        </h2>
+
+        <div class="steps-grid">
+
+            <div class="step-card">
+
+                <h3>Paso 1</h3>
+
+                <p>
+                    Entrá a Configuración y actividad en Instagram.
+                </p>
+
+                <img src="/images/tutorial/paso1.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 2</h3>
+
+                <p>
+                    Entrá al Centro de cuentas.
+                </p>
+
+                <img src="/images/tutorial/paso2.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 3</h3>
+
+                <p>
+                    Andá a "Tu información y permisos".
+                </p>
+
+                <img src="/images/tutorial/paso3.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 4</h3>
+
+                <p>
+                    Elegí "Exportar tu información".
+                </p>
+
+                <img src="/images/tutorial/paso4.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 5</h3>
+
+                <p>
+                    Seleccioná "Exportar al dispositivo".
+                </p>
+
+                <img src="/images/tutorial/paso5.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 6</h3>
+
+                <p>
+                    Elegí "Información personalizada".
+                </p>
+
+                <img src="/images/tutorial/paso6.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 7</h3>
+
+                <p>
+                    Desmarcá todos los checkbox.
+                </p>
+
+                <img src="/images/tutorial/paso7.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 8</h3>
+
+                <p>
+                    Solamente dejar seleccionado Followers and Following.
+                </p>
+
+                <img src="/images/tutorial/paso8.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 9</h3>
+
+                <p>
+                    Elegí formato HTML y período "All time".
+                </p>
+
+                <img src="/images/tutorial/paso9.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 10</h3>
+
+                <p>
+                    Ingresar la contraseña y esperar el mail de descarga.
+                </p>
+
+                <img src="/images/tutorial/paso10.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 11</h3>
+
+                <p>
+                    Mail de aviso de descarga, esperar a la exportación.
+                </p>
+
+                <img src="/images/tutorial/paso11.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 12</h3>
+
+                <p>
+                    Hacer clic en "Export your information".
+                </p>
+
+                <img src="/images/tutorial/paso12.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 13</h3>
+
+                <p>
+                    Elegir el navegador predeterminado.
+                </p>
+
+                <img src="/images/tutorial/paso13.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 14</h3>
+
+                <p>
+                    En la sección "Current Activity" hacer clic en "Download".
+                </p>
+
+                <img src="/images/tutorial/paso14.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 15</h3>
+
+                <p>
+                    Clic en "Download".
+                </p>
+
+                <img src="/images/tutorial/paso15.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 16</h3>
+
+                <p>
+                    Ingresar la contraseña.
+                </p>
+
+                <img src="/images/tutorial/paso16.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 17</h3>
+
+                <p>
+                    Ir a la pagina de Who Don't Follow Me.
+                </p>
+
+                <img src="/images/tutorial/paso17.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 18</h3>
+
+                <p>
+                    Arrastrar el archivo comprimido o "choose a file".
+                </p>
+
+                <img src="/images/tutorial/paso18.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 19</h3>
+
+                <p>
+                    Seleccionar el archivo recientemente descargado.
+                </p>
+
+                <img src="/images/tutorial/paso19.jpeg">
+            </div>
+
+            <div class="step-card">
+
+                <h3>Paso 20</h3>
+
+                <p>
+                    Hacer clic en "Procesar".
+                </p>
+
+                <img src="/images/tutorial/paso20.jpeg">
+            </div>
+
+        </div>
+
+    </section>
 
     <footer>
 
